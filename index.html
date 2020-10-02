@@ -22,12 +22,12 @@
 
   function checkLoginState() {               // Called when a person is finished with the Login Button.
     //FB.getLoginStatus(function(response) {   // See the onlogin handler
-      FB.login(function(response) {
+    // FB.login(function(response) {
               statusChangeCallback(response);
               // handle the response
               }, {scope: 'public_profile,email'});
       
-      console.log(response);
+     // console.log(response);
     });
   }
 
@@ -41,8 +41,14 @@
     });
 
 
-    FB.getLoginStatus(function(response) {   // Called after the JS SDK has been initialized.
-      statusChangeCallback(response);        // Returns the login status.
+    
+      FB.login(function(response) {
+              statusChangeCallback(response);
+              // handle the response
+              }, {scope: 'public_profile,email'});
+      
+      //FB.getLoginStatus(function(response) {   // Called after the JS SDK has been initialized.
+      //statusChangeCallback(response);        // Returns the login status.
     });
   };
  
