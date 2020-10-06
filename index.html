@@ -42,13 +42,10 @@
 
 
     
-      FB.login(function(response) {
-              statusChangeCallback(response);
-              // handle the response
-              }, {scope: 'public_profile,email'});
+     
       
-      //FB.getLoginStatus(function(response) {   // Called after the JS SDK has been initialized.
-      //statusChangeCallback(response);        // Returns the login status.
+      FB.getLoginStatus(function(response) {   // Called after the JS SDK has been initialized.
+      statusChangeCallback(response);        // Returns the login status.
     });
   };
  
@@ -61,6 +58,12 @@
         'Thanks for logging in, ' + response.name + '!';
     });
   }
+  document.getElementById("loginbutton").addEventListener("click",function (){
+  FB.login(function(response) {
+              statusChangeCallback(response);
+              // handle the response
+              }, {scope: 'public_profile,email'});
+  })
 
 </script>
 
@@ -72,6 +75,8 @@
 
 <div id="status">
 </div>
+  
+ <button id="loginbutton" > Custom Login Button</button>
 
 <!-- Load the JS SDK asynchronously -->
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
